@@ -13,6 +13,7 @@ namespace KMA.APZRPMJ2018.WalletSimulator.Views
     {
         private MainViewViewModel _mainWindowViewModel;
         //private WalletConfigurationView _currentWalletConfigurationView;
+        //fdsadsfas
         private AlarmView _alarmView;
         public MainView()
         {

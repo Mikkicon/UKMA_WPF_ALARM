@@ -6,7 +6,7 @@
         mc:Ignorable="d"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         >
-    <Grid>
+    <Grid Name="AlarmGrid" Height="449" Width="600">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -16,11 +16,14 @@
             <ColumnDefinition Width="200"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Grid.Row="0" Grid.Column="0" Content="Add" Margin="10,20"/>
-        <Button Grid.Row="1" Grid.Column="0" Content="Delete" Margin="10,20"/>
-        <ScrollViewer Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Margin="30,30">
-            <WrapPanel>
-                <WrapPanel>
+        <Button Grid.Row="0" Grid.Column="0"   Content="Add" Margin="10,20" Click="Button_Click_1" />
+        <Button Grid.Row="1" Grid.Column="0" Content="Delete" Margin="10,20" Click="Button_Click"/>
+
+        <ListBox Grid.Row="0" Width="400" Height="800" Grid.Column="1" Grid.RowSpan="3" ItemsSource="{Binding Alarms}" SelectedItem="{Binding SelectedWallet}" ScrollViewer.VerticalScrollBarVisibility="Visible"  Margin="2">
+            <ListBox.ItemTemplate >
+                
+                <DataTemplate>
+                    <StackPanel>
                     <ComboBox Width="100" Height="50" ItemsSource="{Binding Hours}">
 
                     </ComboBox>
@@ -28,8 +31,10 @@
                     <ComboBox  Width="100" Height="50" ItemsSource="{Binding Minutes}">
 
                     </ComboBox>
-                </WrapPanel>
-            </WrapPanel>
-        </ScrollViewer>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
     </Grid>
 </UserControl>

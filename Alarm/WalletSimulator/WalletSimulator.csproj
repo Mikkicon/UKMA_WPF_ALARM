@@ -93,6 +93,7 @@
     </Compile>
     <Compile Include="Managers\NavigationManager.cs" />
     <Compile Include="Managers\DBManager.cs" />
+    <Compile Include="Models\Alarm.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Wallet.cs" />
     <Compile Include="Tools\Encrypting.cs" />

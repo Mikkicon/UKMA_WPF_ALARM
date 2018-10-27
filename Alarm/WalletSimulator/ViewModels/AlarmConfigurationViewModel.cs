@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 using KMA.APZRPMJ2018.WalletSimulator.Models;
 using KMA.APZRPMJ2018.WalletSimulator.Properties;
 
@@ -11,9 +12,8 @@ namespace KMA.APZRPMJ2018.WalletSimulator.ViewModels
     internal class AlarmConfigurationViewModel : INotifyPropertyChanged
     {
         #region Fields
-        public List<int> Hours { get; set; }
-        public Alarm _alarm;
-        public List<int> Minutes { get; set; }
+        private Alarm _selectedAlarm;
+        
         private ObservableCollection<Alarm> _alarms;
 
         #endregion
@@ -27,24 +27,21 @@ namespace KMA.APZRPMJ2018.WalletSimulator.ViewModels
         public void Initialize()
         {
             
-            Hours = new List<int>();
-            Minutes = new List<int>();
-            for (int i = 0; i < 24; i++)
-            {
-                Hours.Add(i);
-            }
-            for (int i = 0; i < 60; i++)
-            {
-                Minutes.Add(i);
-            }
+           
             FillAlarms();
+        }
+        public Alarm SelectedAlarm
+        {
+            get{ return _selectedAlarm; }
+            set { _selectedAlarm = value; }
         }
 
         private void FillAlarms()
         {
                 _alarms = new ObservableCollection<Alarm>();
-                
-                _alarms.Add(new Alarm());
+                Alarm a = new Alarm();
+            
+                _alarms.Add(a);
                 
                 
             
@@ -54,14 +51,16 @@ namespace KMA.APZRPMJ2018.WalletSimulator.ViewModels
         {
             get { return _alarms; }
         }
+        
         public void Add()
         {
             Alarm al = new Alarm();
+            SelectedAlarm = al;
             _alarms.Add(al);
         }
         public void Delete()
         {
-            _alarms.Remove(_alarms[0]);
+            _alarms.Remove(SelectedAlarm);
         }
         #endregion
         #region EventsAndHandlers

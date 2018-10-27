@@ -11,7 +11,7 @@ namespace KMA.APZRPMJ2018.WalletSimulator.Models
 
         public List<int> Hours { get; set; }
         public List<int> Minutes { get; set; }
-
+        public List<int> Seconds { get; set; }
 
         public Alarm()
         {
@@ -21,6 +21,7 @@ namespace KMA.APZRPMJ2018.WalletSimulator.Models
         {
             Hours = new List<int>();
             Minutes = new List<int>();
+            Seconds = new List<int>();
             for (int i = 0; i < 24; i++)
             {
                 Hours.Add(i);
@@ -28,6 +29,7 @@ namespace KMA.APZRPMJ2018.WalletSimulator.Models
             for (int i = 0; i < 60; i++)
             {
                 Minutes.Add(i);
+                Seconds.Add(i);
             }
         }
     }

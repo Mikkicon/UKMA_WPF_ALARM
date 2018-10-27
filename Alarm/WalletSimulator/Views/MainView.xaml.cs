@@ -45,6 +45,11 @@ namespace KMA.APZRPMJ2018.WalletSimulator.Views
             DataContext = _alarmConfigView;
         }
 
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
 
 
 

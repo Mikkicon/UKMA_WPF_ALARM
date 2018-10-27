@@ -12,6 +12,9 @@ namespace KMA.APZRPMJ2018.WalletSimulator.Models
         public List<int> Hours { get; set; }
         public List<int> Minutes { get; set; }
         public List<int> Seconds { get; set; }
+        public int _hour;
+        public int _minute;
+        public int _second;
 
         public Alarm()
         {

@@ -19,17 +19,19 @@
         <Button Grid.Row="0" Grid.Column="0"   Content="Add" Margin="10,20" Click="Button_Click_1" />
         <Button Grid.Row="1" Grid.Column="0" Content="Delete" Margin="10,20" Click="Button_Click"/>
 
-        <ListBox Grid.Row="0" Width="600" Height="500" Grid.Column="1" Grid.RowSpan="3" ItemsSource="{Binding Alarms}" SelectedItem="{Binding SelectedAlarm}" ScrollViewer.VerticalScrollBarVisibility="Visible"  Margin="2" SelectionChanged="ListBox_SelectionChanged">
+        <ListBox Name="listBox" Grid.Row="0" Width="600" Height="500" Grid.Column="1" Grid.RowSpan="3" ItemsSource="{Binding Alarms}" SelectedItem="{Binding SelectedAlarm}" ScrollViewer.VerticalScrollBarVisibility="Visible"  Margin="2" SelectionChanged="ListBox_SelectionChanged">
             <ListBox.ItemTemplate >
                 
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <Label>HH:MM:SS</Label>
-                        <ComboBox Width="100" Height="50" ItemsSource="{Binding Hours}"/>
+                        <ComboBox SelectedValue="{Binding ComboHour}" Name="ComboHours" Width="100" Height="50" ItemsSource="{Binding Hours}"/>
                         <Label>:</Label>
-                        <ComboBox  Width="100" Height="50" ItemsSource="{Binding Minutes}"/>
+                        <ComboBox Name="ComboMinutes"  Width="100" Height="50" ItemsSource="{Binding Minutes}"/>
                         <Label>:</Label>
-                        <ComboBox  Width="100" Height="50" ItemsSource="{Binding Seconds}"/>
+                        <ComboBox Name="ComboSeconds" Width="100" Height="50" ItemsSource="{Binding Seconds}"/>
+                        <Label>     </Label>
+                        <Button Content="Start" Click="Button_Click_2" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

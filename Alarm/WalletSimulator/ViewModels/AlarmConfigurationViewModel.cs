@@ -21,6 +21,7 @@ namespace KMA.APZRPMJ2018.WalletSimulator.ViewModels
         #region Constructor
         public AlarmConfigurationViewModel()
         {
+            
             Initialize();
             Add();
         }
@@ -30,6 +31,8 @@ namespace KMA.APZRPMJ2018.WalletSimulator.ViewModels
            
             FillAlarms();
         }
+        
+       
         public Alarm SelectedAlarm
         {
             get{ return _selectedAlarm; }
@@ -42,9 +45,6 @@ namespace KMA.APZRPMJ2018.WalletSimulator.ViewModels
                 Alarm a = new Alarm();
             
                 _alarms.Add(a);
-                
-                
-            
         }
 
         public ObservableCollection<Alarm> Alarms

@@ -16,6 +16,8 @@ namespace KMA.APZRPMJ2018.WalletSimulator.Views
     /// </summary>
     public partial class MainView
     {
+        SoundPlayer p;
+        DateTime current;
         private MainViewViewModel _mainWindowViewModel;
         private System.Timers.Timer _timer;
         //private WalletConfigurationView _currentWalletConfigurationView;
@@ -59,32 +61,37 @@ namespace KMA.APZRPMJ2018.WalletSimulator.Views
 
         private void Button_Click_2(object sender, System.Windows.RoutedEventArgs e)
         {
-            //string textValue =listBox.ComboHours.ToString();
-            //string s = _alarmConfigView.SelectedAlarm._hour.ToString() + _alarmConfigView.SelectedAlarm._minute.ToString() + _alarmConfigView.SelectedAlarm._second.ToString();
-            //Alarm text =(Alarm) listBox.SelectedItem;
-            //MessageBox.Show(System.DateTime.Now.ToString(),"Now is:");
-            //MessageBox.Show(_alarmConfigView.SelectedAlarm.);
-            //MessageBox.Show(s);
+           
             _timer = new System.Timers.Timer();
-            SoundPlayer p = new SoundPlayer();
-            p.SoundLocation = @"C:\Windows\media\Alarm01.wav";
-            p.PlayLooping();
-            //_timer.Interval = 1000;
-            //_timer.Elapsed += Timer_Elapsed;
-            //MessageBox.Show(_alarmConfigView.SelectedAlarm.Hours.ToString()+ _alarmConfigView.SelectedAlarm.Minutes.ToString()+ _alarmConfigView.SelectedAlarm.Seconds.ToString());
-        }
+            _timer.Enabled = true;
+            _timer.Interval = 1000;
+            _timer.Start();
+            _timer.Elapsed += Timer_Elapsed;
+           }
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            DateTime current = DateTime.Now;
-            SoundPlayer p = new SoundPlayer();
+
+
+            current = DateTime.Now;
+            p = new SoundPlayer();
             p.SoundLocation = @"C:\Windows\media\Alarm01.wav";
-            p.PlayLooping();
+            if (current.Hour == _alarmConfigView.SelectedAlarm.ComboHour && current.Minute == _alarmConfigView.SelectedAlarm.ComboMinute && current.Second == _alarmConfigView.SelectedAlarm.ComboSecond)
+            {
+               p.PlayLooping();
+            }
         }
 
         private void ComboHours_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             MessageBox.Show((e.AddedItems[0] as ComboBoxItem).Content as string);
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            
+            p.Stop();
+            _timer.Enabled = false;
         }
 
 

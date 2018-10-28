@@ -10,6 +10,9 @@ namespace KMA.APZRPMJ2018.WalletSimulator.Models
     {
 
         public List<int> Hours { get; set; }
+        public int ComboHour { get; set; }
+        public int ComboMinute { get; set; }
+        public int ComboSecond { get; set; }
         public List<int> Minutes { get; set; }
         public List<int> Seconds { get; set; }
         public int _hour;

@@ -27,11 +27,12 @@
                         <Label>HH:MM:SS</Label>
                         <ComboBox SelectedValue="{Binding ComboHour}" Name="ComboHours" Width="100" Height="50" ItemsSource="{Binding Hours}"/>
                         <Label>:</Label>
-                        <ComboBox Name="ComboMinutes"  Width="100" Height="50" ItemsSource="{Binding Minutes}"/>
+                        <ComboBox SelectedValue="{Binding ComboMinute}" Name="ComboMinutes"  Width="100" Height="50" ItemsSource="{Binding Minutes}"/>
                         <Label>:</Label>
-                        <ComboBox Name="ComboSeconds" Width="100" Height="50" ItemsSource="{Binding Seconds}"/>
+                        <ComboBox SelectedValue="{Binding ComboSecond}" Name="ComboSeconds" Width="100" Height="50" ItemsSource="{Binding Seconds}"/>
                         <Label>     </Label>
                         <Button Content="Start" Click="Button_Click_2" />
+                        <Button Content="Stop" Click="Button_Click_3" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
